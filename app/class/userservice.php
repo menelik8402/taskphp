@@ -1,6 +1,6 @@
 <?php 
         require_once("user.php");
-        require_once("/../dbRepository/database.php");
+        require_once("../app/dbRepository/database.php");
          class UserService{
                  private $dbrepository;
 
@@ -15,7 +15,12 @@
                             $connex=$this->dbrepository->getConnetion();
                             $query="INSERT INTO USER VALUES (?,?,?,?,?)";
                             $stament=$connex->prepare($query);
-                            $stament->bind_param("sssss",$user->getId(),$user->getName(),$user->getLastname(),$user->getEmail(),$user->getPassword());
+                            $id=$user->getId();
+                            $name=$user->getName();
+                            $lastname=$user->getLastname();
+                            $email=$user->getEmail();
+                            $pasword=$user->getPassword();
+                            $stament->bind_param("sssss",$id,$name,$lastname,$email,$pasword);
                             $stament->execute();
 
 

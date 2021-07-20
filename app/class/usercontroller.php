@@ -1,6 +1,7 @@
 <?php 
       require_once("user.php");
       require_once("userservice.php");
+      
       class userController
       {
           private  $userService;
@@ -19,6 +20,7 @@
 
           public function userControlRegister(User $user){
               $this->userService->registerUser($user);
+            
           }
       }
 

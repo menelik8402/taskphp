@@ -24,7 +24,8 @@
         }
         public function checkRediretCode(){
             if(isset($_GET['code'])){
-                $this->client->authenticate($_GET['code']);
+               // $this->client->authenticate($_GET['code']);
+                $this->client->fetchAccessTokenWithAuthCode($_GET['code']);
                 $this->SetToken($this->client->getAccessToken());
                 return true;
             }

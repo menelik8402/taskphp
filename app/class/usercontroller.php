@@ -19,8 +19,17 @@
           }
 
           public function userControlRegister(User $user){
+              //generar codigo de activacion
               $this->userService->registerUser($user);
             
+          }
+          public function changePassController($email,$newpassword){
+             return $this->userService->changePasword($email,$newpassword);
+          }
+          public function loginUserController($email){
+              session_start();
+            $_SESSION['user']=$email;
+            return true;
           }
       }
 

@@ -52,29 +52,26 @@
                     <div class="card">
                         <div class="card-header">Register User</div>
                         <br>
-                        <?php
-                        //if(isset($_SESSION['listOfvalidations']))
-                        {
-                           
-                            session_start();
+                        <?php  
+                         session_start();
+                         print_r($_SESSION);
+                        if(isset($_SESSION['iquals_new_and_confirm_passw']))
+                        {                         
+                         
                            
                             $errors=array(
-                                'verifypass' => $_SESSION['verifypass'],
+                                //'verifypass' => $_SESSION['verifypass'],
                                 'iquals_new_and_confirm_passw'=>$_SESSION['iquals_new_and_confirm_passw'],
                                 'lenght_new_and_confirm_passw' =>$_SESSION['lenght_new_and_confirm_passw'],
-                                'dificult_passwords_entry'=>$_SESSION['dificult_passwords_entry'],
-                                'emailValiation'=>$_SESSION['emailValiation'],
-                                'idValidation'=>$_SESSION['idValidation']
+                                'dificult_passwords_entry'=>$_SESSION['dificult_passwords_entry']
+                                
 
 
                         );
                         print_r($errors);
                                 if(in_array(false,$errors)){
                                     echo " <div class=alert alert-danger id=alerta  role=alert> <ol>";
-                                            if(!$errors['verifypass'])
-                                            {
-                                                echo "<li> Please check the old password do not match.</li>"; 
-                                            }
+                                            
                                             if(!$errors['iquals_new_and_confirm_passw'])
                                             {
                                                 echo "<li> The new password and confirm password do not match.</li>"; 
@@ -83,24 +80,20 @@
                                             {
                                                 echo "<li> The new password and confirm password do not have same lenght.</li>"; 
                                             }
-                                            if(!$errors['verifydificult_passwords_entrypass'])
+                                            if(!$errors['dificult_passwords_entry'])
                                             {
                                                 echo "<li> Please check the new password it wil more dificult.</li>"; 
                                             }
-                                            if(!$errors['emailValiation'])
-                                            {
-                                                echo "<li> This email is not unique.</li>"; 
-                                            }
-                                            if(!$errors['idValidation'])
-                                            {
-                                                echo "<li> This id is not unique.</li>"; 
-                                            }
+                                            
                                     
                                 
             
                                     echo " </ol> </div>";
                                 }  
                             
+                            }
+                            else{
+                                echo "NO ENTRO";
                             }
                         ?>
 

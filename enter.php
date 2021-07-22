@@ -135,7 +135,7 @@
 
                            }
 
-                           //document.location.href = 'login.php';   
+                           
                         }, error: function () {
                             alert('Ha ocurrido un error al cargar los datos. Contacte con el administrador del sistema.')
                         }

@@ -8,11 +8,7 @@ class DBrepository {
         
     }
 
-    /**
-     * Execute a select query
-     * 
-     */
-    public function sqlExecuteNoneQuery( $query){
+   public function sqlExecuteNoneQuery( $query){
         if (!$this->conexion) {
             die("The conexion failed: " . mysqli_connect_error());
         }

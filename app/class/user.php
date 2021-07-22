@@ -8,12 +8,7 @@
         private $email;
         private $password;
 
-       /*  function __construct()
-        {
-            
-        } */
-
-        function __construct($_name,$_lastname,$_id,$_email,$_password)
+       function __construct($_name,$_lastname,$_id,$_email,$_password)
         {
             $this->name= $_name;
             $this->lastname=$_lastname;

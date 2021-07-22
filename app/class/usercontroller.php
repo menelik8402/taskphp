@@ -19,7 +19,6 @@
           }
 
           public function userControlRegister(User $user){
-              //generar codigo de activacion
               $this->userService->registerUser($user);
             
           }

@@ -55,7 +55,7 @@
                 <div class="card-header">Change your password</div>
                 <br>
                 <?php
-                       // echo $_SESSION['changeflag'];
+                      
                      if(isset($_SESSION['changeflag']) && $_SESSION['changeflag']==true ) {
                          
                          $_SESSION['changeflag']=false;

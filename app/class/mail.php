@@ -60,17 +60,7 @@
                 }
                   
                 }
-
-
-               /*  public function sendEmail(){
-                  //return mail($this->toemail,$this->title,$this->message,$this->myemail) ;    
-                  return mail("emailmarqueting@gmail.com","hola titulo","kilo") ;  
-
-
-
-                }
- */
-
+             
             }
 
 ?>

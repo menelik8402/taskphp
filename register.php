@@ -53,10 +53,22 @@
                         <div class="card-header">Register User</div>
                         <br>
                         <?php
-                        if(isset($_SESSION['listOfvalidations'])){
-                            echo"hola";
+                        //if(isset($_SESSION['listOfvalidations']))
+                        {
+                           
                             session_start();
-                            $errors=$_SESSION['listOfvalidations'];
+                           
+                            $errors=array(
+                                'verifypass' => $_SESSION['verifypass'],
+                                'iquals_new_and_confirm_passw'=>$_SESSION['iquals_new_and_confirm_passw'],
+                                'lenght_new_and_confirm_passw' =>$_SESSION['lenght_new_and_confirm_passw'],
+                                'dificult_passwords_entry'=>$_SESSION['dificult_passwords_entry'],
+                                'emailValiation'=>$_SESSION['emailValiation'],
+                                'idValidation'=>$_SESSION['idValidation']
+
+
+                        );
+                        print_r($errors);
                                 if(in_array(false,$errors)){
                                     echo " <div class=alert alert-danger id=alerta  role=alert> <ol>";
                                             if(!$errors['verifypass'])

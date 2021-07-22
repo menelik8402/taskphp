@@ -30,10 +30,10 @@
                                 mysqli_data_seek ($result, 0);
 
                                 $extraido= mysqli_fetch_array($result); 
-                                
-                                $this->resultOfvalidations['verifypass']=password_verify($old_password,$extraido['password']) ;       
+                                $_SESSION['verifypass']=password_verify($old_password,$extraido['password']) ;
+                                //$this->resultOfvalidations['verifypass']=password_verify($old_password,$extraido['password']) ;       
 
-                                $_SESSION['listOfvalidations']=$this->resultOfvalidations;
+                                //$_SESSION['listOfvalidations']=$this->resultOfvalidations;
 
                                  return   password_verify($old_password,$extraido['password']) and $this->iquals_new_and_confirm_passw($new_password,$_confirmpassword) and $this->lenght_new_and_confirm_passw($_confirmpassword) and $this->dificult_passwords_entry($_confirmpassword); 
                                   
@@ -44,7 +44,7 @@
                            }
 
                         }else{
-                                $_SESSION['listOfvalidations']=$this->resultOfvalidations;
+                               // $_SESSION['listOfvalidations']=$this->resultOfvalidations;
                                  return    $this->iquals_new_and_confirm_passw($new_password,$_confirmpassword) and $this->lenght_new_and_confirm_passw($_confirmpassword) and $this->dificult_passwords_entry($_confirmpassword); 
                         }
 
@@ -58,12 +58,14 @@
                       
                         if ($newp == $conf)
                         {
-                                $this->resultOfvalidations['iquals_new_and_confirm_passw']=true;
+                                $_SESSION['iquals_new_and_confirm_passw']=true;
+                                //$this->resultOfvalidations['iquals_new_and_confirm_passw']=true;
                                 return true;
 
                         }
                         else{
-                                $this->resultOfvalidations['iquals_new_and_confirm_passw']=false;
+                                $_SESSION['iquals_new_and_confirm_passw']=false;
+                                //$this->resultOfvalidations['iquals_new_and_confirm_passw']=false;
                                 return false;
   
                         }
@@ -73,17 +75,20 @@
 
                         if(strlen($newp)>=8)
                         {
-                                $this->resultOfvalidations['lenght_new_and_confirm_passw']=true;
+                                $_SESSION['lenght_new_and_confirm_passw']=true;
+                                //$this->resultOfvalidations['lenght_new_and_confirm_passw']=true;
                                 return true;   
                         }
                         else
                         {
-                                $this->resultOfvalidations['lenght_new_and_confirm_passw']=false;
+                                $_SESSION['lenght_new_and_confirm_passw']=false;
+                               // $this->resultOfvalidations['lenght_new_and_confirm_passw']=false;
                                 return false;  
                         }
                 }
                 private function dificult_passwords_entry($newp){
-                        $this->resultOfvalidations['dificult_passwords_entry']=( !ctype_lower($newp) and  !ctype_upper($newp)) ;
+                        $_SESSION['lenght_new_and_confirm_passw']=( !ctype_lower($newp) and  !ctype_upper($newp));
+                        //$this->resultOfvalidations['dificult_passwords_entry']=( !ctype_lower($newp) and  !ctype_upper($newp)) ;
                         return !ctype_lower($newp) and  !ctype_upper($newp);
 
                 }

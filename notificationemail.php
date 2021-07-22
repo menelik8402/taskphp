@@ -12,6 +12,34 @@
     <title>Email Notification</title>
 </head>
 <body>
+<div id="app">
+        <nav class="navbar navbar-expand-md  shadow-sm background-color: #CC1414">
+            <div class="container">
+                <a class="navbar-brand" alingn="center" {{--href="{{ url('/') }} "--}}>
+                    <strong> Php Task</strong>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                   
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Authentication Links -->
+                        
+                           
+                        <li class="nav-item">
+                                   <a class="nav-link" href="enter.php">Login</a>
+                                </li>
+                                                            
+
+                                
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
   <div class="container">
   <br>
       <br>
@@ -25,16 +53,7 @@
 
                   </div>
 
-                     <?php 
-                          if(isset($_SESSION['changeflagnoty']) && !$_SESSION['changeflagnoty']){
-                              echo "This is not a email address account, check and try again";
-                            
-                          }
-                          else{
-                              if(isset($_SESSION['changeflagnoty']) && $_SESSION['changeflagnoty'])
-                                 echo "Message has been sent";
-                          }
-                     ?>
+                     
                             <div class="form-group row justify-content-center col-md-10" >
                             
                                     <label for="nom" class="col-sm-3 col-form-label">Type your email address account</label>
@@ -47,11 +66,22 @@
                                        <input type="submit"  class ="btn-primary" value="Send email">
                                     </div>
                                 </div>
-           </form>           
+           </form>  
+           <?php 
+                     session_start();
+                          if(isset($_SESSION['changeflagnoty']) && $_SESSION['changeflagnoty']=="No Send"){
+                              echo "This is not a email address account, check and try again";
+                            
+                          }
+                          else{
+                              if(isset($_SESSION['changeflagnoty']) && $_SESSION['changeflagnoty']=="Send")
+                                 echo "Message has been sent";
+                          }
+                     ?>         
        </div>
 
   </div>
-                   
+</div>                  
     
 </body>
 </html>

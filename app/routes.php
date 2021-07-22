@@ -54,11 +54,11 @@ switch ($action) {
         if($changeflagnoty){  
           $mail=  new MailUser($_POST['email'],"Notification of Php task", "Your activation password code  is Ac21".$textCode,"emailmarqueting@gmail.com");
           $mail->sendEmail();
-          $_SESSION['changeflagnoty']=$changeflagnoty;
+          $_SESSION['changeflagnoty']="Send";
           
         }
         else{
-          $_SESSION['changeflagnoty']=$changeflagnoty;
+          $_SESSION['changeflagnoty']="No Send";
          
         }
        header("location: ../notificationemail.php");

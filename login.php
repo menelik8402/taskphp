@@ -1,11 +1,24 @@
- <!DOCTYPE html>
- <html lang="en">
- <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Bienbenido a Php Task</title>
- </head>
- <body>
-      Bienbenido
- </body>
- </html>
+ 
+ <?php
+ 
+ require_once('vendor/autoload.php');
+ require_once('app/class/google_auth.php');
+ require_once('app/init.php');
+
+ $googleClient = new Google_Client();
+ $auth =new GoogleAuth($googleClient);
+
+ if($auth->checkRediretCode()){
+
+ 
+     header('location: pagecontent.php');
+
+ }
+ else{
+     if(isset($_SESSION['user'])){
+    
+         header('location: pagecontent.php');
+     }
+ }
+ 
+ ?>

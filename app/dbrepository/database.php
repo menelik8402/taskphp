@@ -17,8 +17,12 @@ class DBrepository {
             die("The conexion failed: " . mysqli_connect_error());
         }
         else{
-            $result=mysqli_query($this->conexion,$query);
-            return $result;
+            try{
+                $result=mysqli_query($this->conexion,$query);
+                return $result;
+            }catch(\Exception $exp){
+                $exp->getMessage();
+            }
         }
     }
     public function getConnetion(){

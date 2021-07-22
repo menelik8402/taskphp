@@ -48,20 +48,20 @@ switch ($action) {
       break;
       case "forgot_password_user":
 
-        $textCode=substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0,5);
+        $textCode=substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0,10);
 
-        $changeflagnoty= $userControler->changePassController($_POST['email'],$textCode);
+        $changeflagnoty= $userControler->changePassController($_POST['email'],"Ac21".$textCode);
         if($changeflagnoty){  
-          $mail=  new MailUser($_POST['email'],"Notification of Php task", "Your code activation is ".$textCode,"emailmarqueting@gmail.com");
+          $mail=  new MailUser($_POST['email'],"Notification of Php task", "Your activation password code  is Ac21".$textCode,"emailmarqueting@gmail.com");
           $mail->sendEmail();
-          $_SESSION['changeflagnoty']=$changeflag;
+          $_SESSION['changeflagnoty']=$changeflagnoty;
           
         }
         else{
-          $_SESSION['changeflagnoty']=$changeflag;
+          $_SESSION['changeflagnoty']=$changeflagnoty;
          
         }
-        header("location: ../notificationemail.php");
+       header("location: ../notificationemail.php");
 
       break;
         

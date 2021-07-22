@@ -44,9 +44,10 @@
   <br>
       <br>
     <div class="row justify-content-center">
-    <form id="form" method="post" action="app/routes.php" >
-    <input type="hidden" name="action" value="forgot_password_user">
-                    <div class="col-md-10 ">
+    <div class="col-md-12">
+             <form id="form" method="post" action="app/routes.php" >
+                 <input type="hidden" name="action" value="forgot_password_user">
+                    <div class="col-md-10 offset-md-1">
                             <div class="alert alert-success" id="alerta"  role="alert">
                                 You will recieved an email with a code to active your account. Please enter you email address account in text box below.
                             </div>
@@ -54,7 +55,7 @@
                   </div>
 
                      
-                            <div class="form-group row justify-content-center col-md-10" >
+                            <div class="form-group row justify-content-center col-md-10 offset-md-2" >
                             
                                     <label for="nom" class="col-sm-3 col-form-label">Type your email address account</label>
                                     <div class="col-sm-5">
@@ -67,20 +68,35 @@
                                     </div>
                                 </div>
            </form>  
-           <?php 
-                     session_start();
-                          if(isset($_SESSION['changeflagnoty']) && $_SESSION['changeflagnoty']=="No Send"){
-                              echo "This is not a email address account, check and try again";
-                            
-                          }
-                          else{
-                              if(isset($_SESSION['changeflagnoty']) && $_SESSION['changeflagnoty']=="Send")
-                                 echo "Message has been sent";
-                          }
-                     ?>         
-       </div>
+                        <div class="form-group row mb-0">
+                            <div class="col-md-8 offset-md-4">  
+                                <?php 
+                                    session_start();
+                                        if(isset($_SESSION['changeflagnoty']) && $_SESSION['changeflagnoty']=="No Send"){
+                                            echo "This is not a email address account, check and try again";
+                                            
+                                        }
+                                else{
+                                    if(isset($_SESSION['changeflagnoty']) && $_SESSION['changeflagnoty']=="Send")
+                                        echo "Message has been sent.";
+                                }
+                            ?>   
+                                </div>
+                     </div>    
+    </div>            
+</div>
 
-  </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    </div>
 </div>                  
     
 </body>

@@ -40,12 +40,14 @@
                     $this->mail->SMTPAuth   = true;                                   //Enable SMTP authentication
                     $this->mail->Username   = 'emailmarqueting@gmail.com';                     //SMTP username
                     $this->mail->Password   = 'Admin.,30';                               //SMTP password
-                    $this->mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-                    $this->mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
-                
+                    $this->mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;            //Enable implicit TLS encryption
+                    $this->mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+                   /*  $this->mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+                    $this->mail->Port       = 465;                                    //TCP port to connect to; use 465 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_SMTPS`
+                                  */
                     //Recipients
                     $this->mail->setFrom('emailmarqueting@gmail.com', 'Php Task');
-                    $this->mail->addAddress('emailmarqueting@gmail.com', 'Menelik');     //Add a recipient
+                    $this->mail->addAddress($this->toemail);     //Add a recipient
                     
                     
                     //Content
@@ -54,7 +56,7 @@
                     $this->mail->Body    = $this->message;
                    
                     $this->mail->send();
-                    
+                    //echo"mensaje enviado";
                 } catch (Exception $e) {
                     echo "Message could not be sent. Mailer Error: { $this->mail->ErrorInfo}";
                 }
